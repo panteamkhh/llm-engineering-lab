@@ -55,6 +55,51 @@ by building everything step by step — before using any framework.
 
 ---
 
+## 📁 Repository Architecture
+LLM Engineering Lab
+├── 01-foundations-of-generative-ai-and-llms/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 02-responsible-generative-ai/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 03-prompt-engineering-fundamentals/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 04-advanced-prompt-engineering/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 05-building-text-generation-apps/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 06-building-chat-applications/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 07-search-apps-and-vector-databases/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 08-building-image-generation-apps/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+├── 09-low-code-function-calling-and-ux/
+│   ├── code/
+│   ├── docs/
+│   └── outputs/
+└── 10-security-lifecycle-agents-and-fine-tuning/
+    ├── code/
+    ├── docs/
+    └── outputs/
+
+---    
+
 ## 🧠 What makes this different?
 
 - No passive learning
