@@ -1,65 +1,61 @@
-# Generative AI Engineering — From Scratch Notes
+<div align="center">
 
-> Build AI systems from first principles — no black boxes, just understanding.
+# 🚀 Generative AI Engineering
 
-
-This repository contains structured notes and runnable code from a **Generative AI for Beginners** style curriculum.  
-Every lesson follows a simple philosophy:
-
-> 🧠 **Build It → Understand It → Use It → Ship It**
+### From Scratch → Understanding → Production Thinking
 
 ---
 
-## 🌐 Live Structure (GitHub Ready Navigation)
+> 🧠 Build AI systems from first principles — no black boxes.
 
-📌 Start here:
-- 🧩 [Lesson 01 — Foundations of Generative AI & LLMs](./01-foundations-of-generative-ai-and-llms/docs/en.md)
-- 🛡️ [Lesson 02 — Responsible Generative AI](./02-responsible-generative-ai/docs/en.md)
-- ✍️ [Lesson 03 — Prompt Engineering Fundamentals](./03-prompt-engineering-fundamentals/docs/en.md)
-- 🧪 [Lesson 04 — Advanced Prompt Engineering](./04-advanced-prompt-engineering/docs/en.md)
-- ⚙️ [Lesson 05 — Text Generation Apps](./05-building-text-generation-apps/docs/en.md)
-- 💬 [Lesson 06 — Chat Applications](./06-building-chat-applications/docs/en.md)
-- 🔍 [Lesson 07 — RAG & Vector Databases](./07-search-apps-and-vector-databases/docs/en.md)
-- 🎨 [Lesson 08 — Image Generation Apps](./08-building-image-generation-apps/docs/en.md)
-- 🧠 [Lesson 09 — Function Calling & UX](./09-low-code-function-calling-and-ux/docs/en.md)
-- 🔐 [Lesson 10 — Security, Agents & Fine-Tuning](./10-security-lifecycle-agents-and-fine-tuning/docs/en.md)
+</div>
 
 ---
 
-## 🧭 What this repo is
+## 🎯 What is this?
 
--  Learn AI by building everything from scratch first
--  Then recreate it with real APIs (OpenAI / tools / frameworks)
--  Each lesson is fully standalone and runnable
--  Focus: intuition > memorization
+A structured learning path to understand **how Generative AI actually works**  
+by building everything step by step — before using any framework.
 
 ---
-## 🧠 Lesson Blueprint
 
-Every lesson follows this structure:
+## 🧭 Learning Philosophy
 
-```markdown
-# Lesson Title
+<div align="center">
 
-## The Problem
-What breaks without this concept
+### 🧠 Build It → 🔍 Understand It → ⚙️ Use It → 🚀 Ship It
 
-## The Concept
-Intuition-first explanation
+</div>
 
-## Build It
-From-scratch implementation (no SDK)
+---
 
-## Use It
-Same idea using real tools/APIs
+## 📚 Course Roadmap
 
-## Ship It
-Final reusable artifact
+| # | Lesson | Focus |
+|--|--------|------|
+| 01 | Foundations of LLMs | Tokens, Transformers, model thinking |
+| 02 | Responsible AI | Safety, risks, evaluation |
+| 03 | Prompt Engineering | Prompt structure & patterns |
+| 04 | Advanced Prompting | Injection, reasoning, structure |
+| 05 | Text Generation Apps | Sampling, streaming |
+| 06 | Chat Applications | Memory, context handling |
+| 07 | RAG Systems | Embeddings, vector DBs |
+| 08 | Image Generation | Diffusion basics |
+| 09 | Tool Use & UX | Function calling |
+| 10 | Agents & Security | LLMOps, agents, safety |
 
-## Exercises
-Practice + challenge
-🎯 Design Philosophy
+---
 
+## 🧱 How each lesson works
+
+Each lesson follows a consistent engineering pattern:
+
+🧩 **Problem** → Why this matters in real systems  
+🧠 **Concept** → Intuition before code  
+🛠 **Build It** → From-scratch implementation (no SDK)  
+⚙️ **Use It** → Real API / framework version  
+📦 **Ship It** → Final reusable artifact  
+🧪 **Exercises** → Practice + challenge tasks
 ---
 
 ## 📁 Repository Architecture
@@ -105,3 +101,13 @@ LLM Engineering Lab
     ├── code/
     ├── docs/
     └── outputs/
+
+---
+
+## 🧠 What makes this different?
+
+- No passive learning 🚫  
+- Everything is built from scratch first 🛠  
+- Focus on real AI engineering thinking 🧠  
+- Each lesson is independent but connected  
+- Designed like a production-ready curriculum      
