@@ -10,7 +10,7 @@
 
 ## 🎯 What is this?
 
-A structured learning path to understand **how Generative AI actually works**  
+A structured learning path to understand **how Generative AI actually works**
 by building everything step by step — before using any framework.
 
 ---
@@ -29,23 +29,23 @@ by building everything step by step — before using any framework.
 
 | #  | Lesson | Focus |
 |----|--------|-------|
-| 01 | Foundations of LLMs | Tokens, Transformers, model thinking |
-| 02 | Responsible AI | Safety, risks, evaluation |
-| 03 | Prompt Engineering | Prompt structure & patterns |
-| 04 | Advanced Prompting | Injection, reasoning, structure |
-| 05 | Text Generation Apps | Sampling, streaming |
-| 06 | Chat Applications | Memory, context handling |
-| 07 | RAG Systems | Embeddings, vector DBs |
-| 08 | Image Generation | Diffusion basics |
-| 09 | Tool Use & UX | Function calling |
-| 10 | Agents & Security | LLMOps, agents, safety |
+| 01 | [Foundations of LLMs](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms) | Tokens, Transformers, model thinking |
+| 02 | [Responsible AI](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai) | Safety, risks, evaluation |
+| 03 | [Prompt Engineering](https://github.com/panteamkhh/llm-engineering-lab/tree/main/03-prompt-engineering-fundamentals) | Prompt structure & patterns |
+| 04 | [Advanced Prompting](https://github.com/panteamkhh/llm-engineering-lab/tree/main/04-advanced-prompt-engineering) | Injection, reasoning, structure |
+| 05 | [Text Generation Apps](https://github.com/panteamkhh/llm-engineering-lab/tree/main/05-building-text-generation-apps) | Sampling, streaming |
+| 06 | [Chat Applications](https://github.com/panteamkhh/llm-engineering-lab/tree/main/06-building-chat-applications) | Memory, context handling |
+| 07 | [RAG Systems](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases) | Embeddings, vector DBs |
+| 08 | [Image Generation](https://github.com/panteamkhh/llm-engineering-lab/tree/main/08-building-image-generation-apps) | Diffusion basics |
+| 09 | [Tool Use & UX](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux) | Function calling |
+| 10 | [Agents & Security](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning) | LLMOps, agents, safety |
 
 ---
 
 ## 🏗 How each lesson works
 
 | Stage | Description |
-|------|-------------|
+|-------|-------------|
 | Problem | Why this matters in real systems |
 | Concept | Intuition before code |
 | Build It | From-scratch implementation (no SDK) |
@@ -56,6 +56,8 @@ by building everything step by step — before using any framework.
 ---
 
 ## 📁 Repository Architecture
+
+```
 LLM Engineering Lab
 ├── 01-foundations-of-generative-ai-and-llms/
 │   ├── code/
@@ -97,8 +99,9 @@ LLM Engineering Lab
     ├── code/
     ├── docs/
     └── outputs/
+```
 
----    
+---
 
 ## 🧠 What makes this different?
 
