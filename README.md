@@ -6,12 +6,6 @@
 
 ---
 
-> 🧠 Build AI systems from first principles — no black boxes.
-
-</div>
-
----
-
 ## 🎯 What is this?
 
 A structured learning path to understand **how Generative AI actually works**
@@ -46,18 +40,18 @@ by building everything step by step — before using any framework.
 
 ---
 
-## 🧱 How each lesson works
+##  How each lesson works
 
 Each lesson follows a consistent engineering pattern:
 
 | Stage | Description |
 |-------|-------------|
-| 🧩 **Problem**   | Why this matters in real systems |
-| 🧠 **Concept**   | Intuition before code |
-| 🛠 **Build It**  | From-scratch implementation (no SDK) |
-| ⚙️ **Use It**    | Real API / framework version |
-| 📦 **Ship It**   | Final reusable artifact |
-| 🧪 **Exercises** | Practice + challenge tasks |
+|  **Problem**   | Why this matters in real systems |
+|  **Concept**   | Intuition before code |
+|  **Build It**  | From-scratch implementation (no SDK) |
+|  **Use It**    | Real API / framework version |
+|  **Ship It**   | Final reusable artifact |
+|  **Exercises** | Practice + challenge tasks |
 
 ---
 
@@ -111,8 +105,8 @@ LLM Engineering Lab
 
 ## 🧠 What makes this different?
 
-- No passive learning 🚫
-- Everything is built from scratch first 🛠
-- Focus on real AI engineering thinking 🧠
+- No passive learning 
+- Everything is built from scratch first 
+- Focus on real AI engineering thinking 
 - Each lesson is independent but connected
 - Designed like a production-ready curriculum
