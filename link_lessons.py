@@ -3,11 +3,24 @@
 link_lessons.py
 ----------------
 Walks the repo, finds every docs/*.md file inside each lesson folder,
-and turns plain-text references like "Lesson 07" / "lesson 7" / "درس 07"
-into real markdown links pointing at that lesson's doc file
-(same language file when it exists, otherwise falling back to en.md).
+and turns plain-text references like:
 
-Usage (run from the REPO ROOT):
+    "Lesson 07"
+    "Lessons 03-04"
+    "Lessons 03–04"        (en-dash)
+    "Lessons 01–09"
+    "Lessons 03-04, 07"
+    "درس 07"
+
+into real markdown links, each number in the reference individually
+linked to that lesson's docs/en.md file (same language file when it
+exists, otherwise falling back to en.md).
+
+Example:
+    "(see Lessons 03-04, 07)"
+ -> "(see Lessons [03](../../03-.../docs/en.md)-[04](../../04-.../docs/en.md), [07](../../07-.../docs/en.md))"
+
+Usage (run from the REPO ROOT, e.g. D:\\LLM Engineering Lab):
     python3 link_lessons.py            # writes changes
     python3 link_lessons.py --dry-run  # only prints what WOULD change
 """
@@ -33,8 +46,21 @@ LESSON_FOLDERS = {
 DOCS_SUBDIR = "docs"
 FALLBACK_LANG_FILE = "en.md"
 
-# Matches "Lesson 7", "lesson07", "Lesson 07", and Persian "درس 07"
-PATTERN = re.compile(r"(?P<label>Lesson|lesson|درس)\s*0?(?P<num>\d{1,2})\b")
+# --- Regex machinery -------------------------------------------------
+# A single lesson number: optional leading zero + 1-2 digits.
+NUM = r"0?\d{1,2}"
+# Separator between numbers in a list/range: "-", "–", "—", ",", "and", "&"
+SEP = r"(?:\s*[-\u2013\u2014,]\s*|\s+and\s+|\s*&\s*)"
+# One or more numbers chained by separators: "07" / "03-04" / "03-04, 07" / "01-09"
+NUMLIST = rf"{NUM}(?:{SEP}{NUM})*"
+
+# "Lesson"/"Lessons"/"درس" + whitespace + a numlist, as its own capture groups
+PATTERN = re.compile(
+    rf"(?P<label>Lessons?|درس)(?P<ws>\s+)(?P<numlist>{NUMLIST})\b",
+    re.IGNORECASE,
+)
+
+SINGLE_NUM = re.compile(r"\d{1,2}")
 
 
 def target_file_for(num: int, lang_filename: str, repo_root: str) -> str | None:
@@ -54,7 +80,10 @@ def target_file_for(num: int, lang_filename: str, repo_root: str) -> str | None:
 
 
 def already_linked(text: str, start: int, end: int) -> bool:
-    """True if the match is already inside a markdown link, e.g. [Lesson 07](...)."""
+    """True if the match is already wrapped as a markdown link, e.g.
+    [Lesson 07](...). Range/list matches are naturally idempotent because
+    once a number is replaced with [07](...), a re-run's numlist pattern
+    (which requires digits right after 'Lesson(s)') no longer matches."""
     before = text[:start]
     after = text[end:]
     if before.endswith("["):
@@ -76,23 +105,26 @@ def process_file(filepath: str, repo_root: str, dry_run: bool) -> int:
 
     changes = 0
 
-    def replacer(match: re.Match) -> str:
+    def replace_number(match: re.Match) -> str:
         nonlocal changes
-        if already_linked(content, match.start(), match.end()):
-            return match.group(0)
-
-        num = int(match.group("num"))
+        num = int(match.group(0))
         if num == current_num:
             return match.group(0)  # don't self-link
-
         target = target_file_for(num, lang_filename, repo_root)
         if not target:
             return match.group(0)  # unknown lesson number, leave as-is
-
-        rel_path = os.path.relpath(target, os.path.dirname(filepath))
-        rel_path = rel_path.replace(os.sep, "/")
+        rel_path = os.path.relpath(target, os.path.dirname(filepath)).replace(os.sep, "/")
         changes += 1
         return f"[{match.group(0)}]({rel_path})"
+
+    def replacer(match: re.Match) -> str:
+        if already_linked(content, match.start(), match.end()):
+            return match.group(0)
+        label = match.group("label")
+        ws = match.group("ws")
+        numlist = match.group("numlist")
+        new_numlist = SINGLE_NUM.sub(replace_number, numlist)
+        return f"{label}{ws}{new_numlist}"
 
     new_content = PATTERN.sub(replacer, content)
 
