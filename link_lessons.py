@@ -12,13 +12,15 @@ and turns plain-text references like:
     "Lessons 03-04, 07"
     "درس 07"
 
-into real markdown links, each number in the reference individually
-linked to that lesson's docs/en.md file (same language file when it
-exists, otherwise falling back to en.md).
+into real markdown links pointing at that lesson's folder on GitHub, e.g.:
 
-Example:
+    "(see Lesson 07)"
+ -> "(see [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases))"
+
+Each number inside a range/list is linked individually:
+
     "(see Lessons 03-04, 07)"
- -> "(see Lessons [03](../../03-.../docs/en.md)-[04](../../04-.../docs/en.md), [07](../../07-.../docs/en.md))"
+ -> "(see Lessons [03](.../03-prompt-engineering-fundamentals)-[04](.../04-advanced-prompt-engineering), [07](.../07-search-apps-and-vector-databases))"
 
 Usage (run from the REPO ROOT, e.g. D:\\LLM Engineering Lab):
     python3 link_lessons.py            # writes changes
@@ -28,6 +30,9 @@ Usage (run from the REPO ROOT, e.g. D:\\LLM Engineering Lab):
 import argparse
 import os
 import re
+
+# Base GitHub repo URL — edit if the repo moves.
+REPO_URL = "https://github.com/panteamkhh/llm-engineering-lab/tree/main"
 
 # number -> folder name (from README.md roadmap table)
 LESSON_FOLDERS = {
@@ -44,7 +49,6 @@ LESSON_FOLDERS = {
 }
 
 DOCS_SUBDIR = "docs"
-FALLBACK_LANG_FILE = "en.md"
 
 # --- Regex machinery -------------------------------------------------
 # A single lesson number: optional leading zero + 1-2 digits.
@@ -63,20 +67,12 @@ PATTERN = re.compile(
 SINGLE_NUM = re.compile(r"\d{1,2}")
 
 
-def target_file_for(num: int, lang_filename: str, repo_root: str) -> str | None:
-    """Return the docs file to link to for lesson `num`, preferring the same
-    language file as the current doc, falling back to en.md."""
+def target_url_for(num: int) -> str | None:
+    """Return the GitHub folder URL for lesson `num`, or None if unknown."""
     folder = LESSON_FOLDERS.get(num)
     if not folder:
         return None
-    docs_dir = os.path.join(repo_root, folder, DOCS_SUBDIR)
-    same_lang = os.path.join(docs_dir, lang_filename)
-    if os.path.isfile(same_lang):
-        return same_lang
-    fallback = os.path.join(docs_dir, FALLBACK_LANG_FILE)
-    if os.path.isfile(fallback):
-        return fallback
-    return None
+    return f"{REPO_URL}/{folder}"
 
 
 def already_linked(text: str, start: int, end: int) -> bool:
@@ -93,15 +89,9 @@ def already_linked(text: str, start: int, end: int) -> bool:
     return False
 
 
-def process_file(filepath: str, repo_root: str, dry_run: bool) -> int:
+def process_file(filepath: str, current_num: int | None, dry_run: bool) -> int:
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
-
-    lang_filename = os.path.basename(filepath)  # e.g. en.md / fa.md
-    current_folder = os.path.basename(os.path.dirname(os.path.dirname(filepath)))
-    current_num = next(
-        (n for n, folder in LESSON_FOLDERS.items() if folder == current_folder), None
-    )
 
     changes = 0
 
@@ -110,12 +100,11 @@ def process_file(filepath: str, repo_root: str, dry_run: bool) -> int:
         num = int(match.group(0))
         if num == current_num:
             return match.group(0)  # don't self-link
-        target = target_file_for(num, lang_filename, repo_root)
-        if not target:
+        url = target_url_for(num)
+        if not url:
             return match.group(0)  # unknown lesson number, leave as-is
-        rel_path = os.path.relpath(target, os.path.dirname(filepath)).replace(os.sep, "/")
         changes += 1
-        return f"[{match.group(0)}]({rel_path})"
+        return f"[{match.group(0)}]({url})"
 
     def replacer(match: re.Match) -> str:
         if already_linked(content, match.start(), match.end()):
@@ -154,7 +143,7 @@ def main():
         for fname in os.listdir(docs_dir):
             if fname.endswith(".md"):
                 fpath = os.path.join(docs_dir, fname)
-                total += process_file(fpath, repo_root, args.dry_run)
+                total += process_file(fpath, num, args.dry_run)
 
     print(f"\nDone. {total} link(s) {'would be ' if args.dry_run else ''}created.")
 
