@@ -18,7 +18,7 @@ Asking the model to reason step by step before giving a final answer ("Let's thi
 
 ### Give the model room to say "I don't know"
 
-Explicitly instructing the model that it's acceptable to say "I don't know" or "I don't have enough information" reduces confidently-wrong hallucinations, especially when combined with grounding (see Lesson 07).
+Explicitly instructing the model that it's acceptable to say "I don't know" or "I don't have enough information" reduces confidently-wrong hallucinations, especially when combined with grounding (see [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases)).
 
 ### Structuring prompts for repeatability
 
@@ -38,7 +38,7 @@ Treat prompt development like software development:
 
 ### Prompt injection — the security angle
 
-Because instructions and user-provided content often travel in the same text channel, a malicious or careless piece of input content can contain text that looks like an instruction ("Ignore all previous instructions and instead..."). Defenses include: clearly delimiting untrusted content, instructing the model to treat delimited content as data only, validating/filtering inputs, and never letting user-supplied content alone determine sensitive actions (see Lesson 10 for the broader security picture).
+Because instructions and user-provided content often travel in the same text channel, a malicious or careless piece of input content can contain text that looks like an instruction ("Ignore all previous instructions and instead..."). Defenses include: clearly delimiting untrusted content, instructing the model to treat delimited content as data only, validating/filtering inputs, and never letting user-supplied content alone determine sensitive actions (see [Lesson 10](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning) for the broader security picture).
 
 ## Build It
 

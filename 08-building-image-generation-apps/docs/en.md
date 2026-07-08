@@ -29,7 +29,7 @@ Most modern image generators are **diffusion models**: they start from random no
 
 ### Responsible image generation
 
-Image generation carries specific risks beyond text: generating photorealistic depictions of real people, deepfakes, or copyrighted characters/art styles. Most providers apply content filters on both the prompt and the resulting image, and application-level policies should add their own review layer for user-facing generation features (consistent with the mitigation layers from Lesson 02).
+Image generation carries specific risks beyond text: generating photorealistic depictions of real people, deepfakes, or copyrighted characters/art styles. Most providers apply content filters on both the prompt and the resulting image, and application-level policies should add their own review layer for user-facing generation features (consistent with the mitigation layers from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai)).
 
 ### Cost and latency considerations
 

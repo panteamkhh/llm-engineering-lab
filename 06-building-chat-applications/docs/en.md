@@ -30,13 +30,13 @@ Common strategies:
 
 - **Sliding window** — keep only the last *N* turns.
 - **Summarization** — periodically summarize older turns into a compact system-message-style recap and drop the raw turns.
-- **Retrieval-based memory** — store past turns in a vector store and retrieve only the relevant ones for the current turn (a chat-specific application of RAG, see Lesson 07).
+- **Retrieval-based memory** — store past turns in a vector store and retrieve only the relevant ones for the current turn (a chat-specific application of RAG, see [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases)).
 
 ### Enhancing the user experience
 
 - **Streaming responses** token-by-token dramatically improves perceived responsiveness.
 - **Typing indicators / "thinking" states** manage user expectations during generation.
-- **Clear AI disclosure** ("You're chatting with an AI assistant") supports the transparency principle from Lesson 02.
+- **Clear AI disclosure** ("You're chatting with an AI assistant") supports the transparency principle from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai).
 - **Conversation reset / "start over"** affordances give users an escape hatch when the conversation goes off track.
 
 ### Capturing performance metrics
@@ -46,7 +46,7 @@ Track, per conversation and in aggregate:
 - Latency (time-to-first-token and total completion time)
 - Token usage (input/output, cost)
 - User satisfaction signals (thumbs up/down, session length, drop-off point)
-- Safety-system trigger rate (from Lesson 02's mitigation layer)
+- Safety-system trigger rate (from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai)'s mitigation layer)
 
 ### Responsible AI in chat specifically
 

@@ -8,7 +8,7 @@ Two developers can send the exact same model two different prompts asking for "t
 
 ## The Concept
 
-### Quick recap of terms from Lesson 01
+### Quick recap of terms from [Lesson 01](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms)
 
 - **Token** — the basic unit of text a model reads/writes.
 - **Context window** — the maximum number of tokens (input + output) a model can consider at once.

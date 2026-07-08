@@ -31,10 +31,10 @@ Calling `chat.completions.create(...)` once in a script is trivial. Turning that
 A production text-generation feature typically needs:
 
 1. **Input validation** — reject empty or malformed input before spending a token budget.
-2. **Prompt assembly** — combine a system message, any retrieved context, and the user input (see Lessons 03–04, 07).
+2. **Prompt assembly** — combine a system message, any retrieved context, and the user input (see Lessons [03](https://github.com/panteamkhh/llm-engineering-lab/tree/main/03-prompt-engineering-fundamentals)–[04](https://github.com/panteamkhh/llm-engineering-lab/tree/main/04-advanced-prompt-engineering), [07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases)).
 3. **The API call**, with sensible parameter defaults and a timeout.
 4. **Retry logic with backoff** for transient errors (rate limits, timeouts) — never retry blindly on content-related failures.
-5. **Post-processing** — trimming, format validation, and (per Lesson 02) a safety check on the output before it's shown to the user.
+5. **Post-processing** — trimming, format validation, and (per [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai)) a safety check on the output before it's shown to the user.
 6. **Streaming** (optional but common) — many providers support streaming tokens back as they're generated, which dramatically improves perceived latency for longer outputs.
 
 ### Handling failure modes gracefully

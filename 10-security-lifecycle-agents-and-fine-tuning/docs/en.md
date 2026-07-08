@@ -4,7 +4,7 @@
 
 ## The Problem
 
-Everything covered so far (Lessons 01–09) gets you to a working prototype. Turning that prototype into a production system that's secure, maintainable over time, capable of autonomous multi-step behavior, and — when truly needed — customized at the model-weights level, requires four more disciplines: security, LLMOps/lifecycle management, agents, and fine-tuning.
+Everything covered so far (Lessons [01](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms)–[09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux)) gets you to a working prototype. Turning that prototype into a production system that's secure, maintainable over time, capable of autonomous multi-step behavior, and — when truly needed — customized at the model-weights level, requires four more disciplines: security, LLMOps/lifecycle management, agents, and fine-tuning.
 
 ## The Concept
 
@@ -12,10 +12,10 @@ Everything covered so far (Lessons 01–09) gets you to a working prototype. Tur
 
 Generative AI applications inherit traditional application-security risks (auth, injection, data leakage) **plus** AI-specific risks:
 
-- **Prompt injection** — malicious instructions hidden in user input or retrieved documents attempt to override your system prompt (see Lesson 04). Mitigate with delimiters, input/output filtering, and never letting model output alone trigger high-privilege actions without validation.
+- **Prompt injection** — malicious instructions hidden in user input or retrieved documents attempt to override your system prompt (see [Lesson 04](https://github.com/panteamkhh/llm-engineering-lab/tree/main/04-advanced-prompt-engineering)). Mitigate with delimiters, input/output filtering, and never letting model output alone trigger high-privilege actions without validation.
 - **Data leakage** — a model might reveal sensitive information from its context (e.g., another user's data accidentally included in a shared prompt, or secrets embedded in a system prompt). Mitigate with strict data segregation per user/tenant and by never putting long-lived secrets in prompts.
-- **Excessive agency** — giving a model too much unchecked ability to take real-world actions (via function calling, see Lesson 09) without human approval or guardrails on scope.
-- **Model/output abuse** — using your application as a cheap way to generate spam, malware, or disallowed content at scale. Mitigate with rate limiting, abuse monitoring, and the content-safety layer from Lesson 02.
+- **Excessive agency** — giving a model too much unchecked ability to take real-world actions (via function calling, see [Lesson 09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux)) without human approval or guardrails on scope.
+- **Model/output abuse** — using your application as a cheap way to generate spam, malware, or disallowed content at scale. Mitigate with rate limiting, abuse monitoring, and the content-safety layer from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai).
 
 A practical security checklist mirrors general app security plus these AI-specific additions: least-privilege for any function-calling capability, output validation before it's used programmatically or shown to other users, logging/auditing of prompts and completions for incident investigation, and periodic red-teaming.
 
@@ -26,20 +26,20 @@ A practical security checklist mirrors general app security plus these AI-specif
 1. **Experimentation** — try prompts, models, and RAG configurations against an evaluation set.
 2. **Evaluation** — measure quality (accuracy, relevance, safety) systematically, not just by eyeballing a few outputs.
 3. **Deployment** — promote a specific prompt + model + configuration version to production, ideally behind a staged rollout.
-4. **Monitoring** — track quality, cost, and latency metrics in production continuously (extending the metrics from Lesson 06).
+4. **Monitoring** — track quality, cost, and latency metrics in production continuously (extending the metrics from [Lesson 06](https://github.com/panteamkhh/llm-engineering-lab/tree/main/06-building-chat-applications)).
 5. **Iteration** — because model providers update models, and because your data and users evolve, LLMOps is a **continuous loop**, not a one-time deployment.
 
 Treat prompts, RAG configurations, and evaluation datasets as **versioned artifacts** in source control, the same way you version code — this is what makes it possible to detect and roll back regressions.
 
 ### Part 3 — AI agents
 
-An **AI agent** is a system built around an LLM that can autonomously plan and execute a sequence of steps — including deciding which tools/functions to call (Lesson 09) and in what order — to accomplish a goal, rather than producing a single one-shot response.
+An **AI agent** is a system built around an LLM that can autonomously plan and execute a sequence of steps — including deciding which tools/functions to call ([Lesson 09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux)) and in what order — to accomplish a goal, rather than producing a single one-shot response.
 
 Common agent frameworks provide:
 
 - A **planning loop** (the agent reasons about what to do next, acts, observes the result, and repeats — sometimes called a ReAct-style loop: Reason, Act, Observe).
 - **Tool/function integration** so the agent can call external systems.
-- **Memory** (short-term within a run, and sometimes long-term across runs, often backed by a vector store as in Lesson 07).
+- **Memory** (short-term within a run, and sometimes long-term across runs, often backed by a vector store as in [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases)).
 
 **When to use an agent vs. a simpler function-calling pattern:** if the task requires a fixed, known sequence of one or two actions, plain function calling is simpler, cheaper, and more predictable. Reach for an agent when the sequence of steps needed to solve a task can't be predetermined and must be decided dynamically based on intermediate results — with the tradeoff that agents are harder to test, more expensive (multiple model calls per task), and require stronger guardrails against "excessive agency" (see Part 1).
 
@@ -68,7 +68,7 @@ Common agent frameworks provide:
 
 ## Build It
 
-Build a minimal, from-scratch ReAct-style agent loop (reason → act → observe → repeat) using the function registry pattern from Lesson 09, so you can see the control flow that agent frameworks automate for you.
+Build a minimal, from-scratch ReAct-style agent loop (reason → act → observe → repeat) using the function registry pattern from [Lesson 09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux), so you can see the control flow that agent frameworks automate for you.
 
 ```python
 # code/react_agent_from_scratch.py

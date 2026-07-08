@@ -41,9 +41,9 @@ A **foundation model** is a large model pre-trained on broad data that can be ad
 
 ### Model categories you'll encounter
 
-- **Text-to-embedding models** — convert text into a numeric vector so it can be compared, searched, or clustered. This is the backbone of semantic search and RAG (see Lesson 07).
+- **Text-to-embedding models** — convert text into a numeric vector so it can be compared, searched, or clustered. This is the backbone of semantic search and RAG (see [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases)).
 - **Text generation models** — the "classic" LLM use case: prompt in, text (or code) out.
-- **Image generation models** — prompt in, image out (see Lesson 08).
+- **Image generation models** — prompt in, image out (see [Lesson 08](https://github.com/panteamkhh/llm-engineering-lab/tree/main/08-building-image-generation-apps)).
 
 ### Service vs. model (the deployment axis)
 
@@ -65,8 +65,8 @@ This is also why **API pricing is usually per token** (input + output combined),
 There is no single "best" approach — pick based on your constraints:
 
 1. **Prompt engineering (zero-shot / one-shot / few-shot)** — cheapest, fastest to iterate, good default starting point.
-2. **Retrieval-Augmented Generation (RAG)** — bolt external, up-to-date, or private data onto the prompt via a search/vector pipeline when the base model's training data isn't enough. See Lesson 07.
-3. **Fine-tuning** — retrain part of the model's weights on your own labeled data when you need a specific style, format, or very low latency (no room for long context). See Lesson 10.
+2. **Retrieval-Augmented Generation (RAG)** — bolt external, up-to-date, or private data onto the prompt via a search/vector pipeline when the base model's training data isn't enough. See [Lesson 07](https://github.com/panteamkhh/llm-engineering-lab/tree/main/07-search-apps-and-vector-databases).
+3. **Fine-tuning** — retrain part of the model's weights on your own labeled data when you need a specific style, format, or very low latency (no room for long context). See [Lesson 10](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning).
 4. **Training a model from scratch** — reserved for very large, well-resourced organizations with abundant domain-specific data.
 
 These techniques are **complementary, not mutually exclusive** — production systems often combine prompt engineering + RAG, or RAG + a lightly fine-tuned model.

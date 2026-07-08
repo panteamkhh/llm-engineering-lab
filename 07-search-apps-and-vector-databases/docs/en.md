@@ -27,7 +27,7 @@ A **vector database/store** indexes embeddings for fast approximate nearest-neig
 
 ### What is RAG, precisely?
 
-**Retrieval-Augmented Generation** is a prompt-engineering pattern (see Lessons 03–04) that:
+**Retrieval-Augmented Generation** is a prompt-engineering pattern (see Lessons [03](https://github.com/panteamkhh/llm-engineering-lab/tree/main/03-prompt-engineering-fundamentals)–[04](https://github.com/panteamkhh/llm-engineering-lab/tree/main/04-advanced-prompt-engineering)) that:
 
 1. Takes the user's query.
 2. Embeds it and searches a vector store (or a hybrid search pipeline) for the most relevant chunks of your own documents.

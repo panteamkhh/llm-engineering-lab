@@ -22,7 +22,7 @@ Low-code platforms (e.g., Microsoft Power Platform, with AI Builder and Copilot 
 
 **Function calling** lets you describe a set of functions (name, description, parameter schema) to the model. Instead of only returning text, the model can respond by indicating *which function to call and with what arguments*, based on the user's request. Your application code then actually executes that function (e.g., call a weather API, query a database) and feeds the result back to the model to produce a final natural-language answer.
 
-**Why this matters:** it turns an LLM from a "text-only" system into one that can take real actions and retrieve real-time data it wasn't trained on — the foundation for AI agents (see Lesson 10).
+**Why this matters:** it turns an LLM from a "text-only" system into one that can take real actions and retrieve real-time data it wasn't trained on — the foundation for AI agents (see [Lesson 10](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning)).
 
 **Function calling flow:**
 
@@ -45,7 +45,7 @@ Key UX considerations specific to generative AI apps:
 - **Design for uncertainty.** Show confidence signals where possible, offer sources/citations for grounded answers (from RAG), and make it easy to verify claims.
 - **Provide control and recovery.** Let users edit/regenerate a response, undo an action taken via function calling, or escalate to a human.
 - **Reduce blank-page anxiety.** Suggested prompts, example queries, or templates help users who don't know what to ask.
-- **Give feedback loops.** Thumbs up/down or explicit correction mechanisms both improve the product and satisfy the accountability principle from Lesson 02.
+- **Give feedback loops.** Thumbs up/down or explicit correction mechanisms both improve the product and satisfy the accountability principle from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai).
 - **Match latency expectations to the UI.** Streaming text and progress indicators for slower operations (image generation, function calls to slow APIs) keep users engaged rather than confused by silence.
 
 ## Build It

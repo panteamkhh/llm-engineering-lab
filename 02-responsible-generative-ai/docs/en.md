@@ -27,8 +27,8 @@ Responsible AI should not be an afterthought bolted on right before launch — i
 3. **Mitigate** the harms using a layered approach, from the model up to the user:
    - **Model layer:** choose a model that fits your safety requirements and has appropriate safety training.
    - **Safety system layer:** add platform-level content filters (input and output) and abuse-monitoring/detection systems that sit outside the model itself.
-   - **Prompt layer:** use grounding (RAG), metaprompt/system-message design, and prompt engineering techniques to constrain behavior (see Lessons 03–04).
-   - **User experience layer:** design the UI/UX to set correct expectations, disclose AI involvement, and give users an easy way to give feedback or report issues (see Lesson 09).
+   - **Prompt layer:** use grounding (RAG), metaprompt/system-message design, and prompt engineering techniques to constrain behavior (see Lessons [03](https://github.com/panteamkhh/llm-engineering-lab/tree/main/03-prompt-engineering-fundamentals)–[04](https://github.com/panteamkhh/llm-engineering-lab/tree/main/04-advanced-prompt-engineering)).
+   - **User experience layer:** design the UI/UX to set correct expectations, disclose AI involvement, and give users an easy way to give feedback or report issues (see [Lesson 09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux)).
 
 4. **Operate** the solution responsibly in production.
    - Have a deployment and incident-response plan defined *before* launch, not during a crisis.
