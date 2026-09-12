@@ -70,7 +70,7 @@ Each lesson follows the same rhythm: understand the problem, build the mechanism
 The curriculum flows through four phases — master each one before moving to the next.
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph P1["🧱 Foundations"]
         direction TB
         A1["01 · Foundations of LLMs"] --> A2["02 · Responsible AI"]
@@ -84,7 +84,8 @@ flowchart LR
     subgraph P3["🛠️ Building Applications"]
         direction TB
         C1["05 · Text Generation"] --> C2["06 · Chat Applications"]
-        C2 --> C3["07 · RAG & Search"] --> C4["08 · Image Generation"]
+        C2 --> C3["07 · RAG & Search"]
+        C3 --> C4["08 · Image Generation"]
     end
 
     subgraph P4["🚀 Production"]
