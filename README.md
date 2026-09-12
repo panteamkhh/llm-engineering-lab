@@ -67,17 +67,34 @@ Each lesson follows the same rhythm: understand the problem, build the mechanism
 
 ### 🗺️ Learning Path
 
+The curriculum flows through four phases — master each one before moving to the next.
+
 ```mermaid
 flowchart LR
-    A[01 Foundations] --> B[02 Responsible AI]
-    B --> C[03 Prompt Engineering]
-    C --> D[04 Advanced Prompting]
-    D --> E[05 Text Generation]
-    E --> F[06 Chat Apps]
-    F --> G[07 RAG & Search]
-    G --> H[08 Image Generation]
-    H --> I[09 Function Calling]
-    I --> J[10 Agents & Security]
+    subgraph P1["🧱 Foundations"]
+        direction TB
+        A1["01 · Foundations of LLMs"] --> A2["02 · Responsible AI"]
+    end
+
+    subgraph P2["✍️ Prompting"]
+        direction TB
+        B1["03 · Prompt Engineering"] --> B2["04 · Advanced Prompting"]
+    end
+
+    subgraph P3["🛠️ Building Applications"]
+        direction TB
+        C1["05 · Text Generation"] --> C2["06 · Chat Applications"]
+        C2 --> C3["07 · RAG & Search"] --> C4["08 · Image Generation"]
+    end
+
+    subgraph P4["🚀 Production"]
+        direction TB
+        D1["09 · Function Calling & UX"] --> D2["10 · Agents & Security"]
+    end
+
+    A2 --> B1
+    B2 --> C1
+    C4 --> D1
 ```
 
 ---
