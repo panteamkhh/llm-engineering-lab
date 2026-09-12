@@ -71,31 +71,11 @@ The curriculum flows through four phases — master each one before moving to th
 
 ```mermaid
 flowchart TD
-    subgraph P1["🧱 Foundations"]
-        direction TB
-        A1["01 · Foundations of LLMs"] --> A2["02 · Responsible AI"]
-    end
-
-    subgraph P2["✍️ Prompting"]
-        direction TB
-        B1["03 · Prompt Engineering"] --> B2["04 · Advanced Prompting"]
-    end
-
-    subgraph P3["🛠️ Building Applications"]
-        direction TB
-        C1["05 · Text Generation"] --> C2["06 · Chat Applications"]
-        C2 --> C3["07 · RAG & Search"]
-        C3 --> C4["08 · Image Generation"]
-    end
-
-    subgraph P4["🚀 Production"]
-        direction TB
-        D1["09 · Function Calling & UX"] --> D2["10 · Agents & Security"]
-    end
-
-    A2 --> B1
-    B2 --> C1
-    C4 --> D1
+    A1["🧱 01 · Foundations of LLMs"] --> A2["🧱 02 · Responsible AI"]
+    A2 --> B1["✍️ 03 · Prompt Engineering"] --> B2["✍️ 04 · Advanced Prompting"]
+    B2 --> C1["🛠️ 05 · Text Generation"] --> C2["🛠️ 06 · Chat Applications"]
+    C2 --> C3["🛠️ 07 · RAG & Search"] --> C4["🛠️ 08 · Image Generation"]
+    C4 --> D1["🚀 09 · Function Calling & UX"] --> D2["🚀 10 · Agents & Security"]
 ```
 
 ---
