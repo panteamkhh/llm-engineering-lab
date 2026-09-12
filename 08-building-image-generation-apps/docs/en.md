@@ -1,12 +1,21 @@
 # Lesson 08 — Building Image Generation Applications
 
-> One-line motto — A great image prompt is a great text prompt with a camera lens attached.
+> 💡 A great image prompt is a great text prompt with a camera lens attached.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;08 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../07-search-apps-and-vector-databases/docs/en.md">⬅ Lesson&nbsp;07</a> &nbsp;·&nbsp;
+  <a href="../09-low-code-function-calling-and-ux/docs/en.md">Lesson&nbsp;09 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Image generation models (DALL·E, Stable Diffusion, and similar diffusion-based models) turn a text prompt into a raster image, but naive prompts ("a dog") produce generic, low-quality results. Building a real image-generation feature also means handling variations, editing, safety filtering, and cost — all different from text generation.
 
-## The Concept
+## 🧠 The Concept
 
 ### How image generation models work (conceptually)
 
@@ -39,7 +48,7 @@ Image generation is typically slower and more expensive per request than text ge
 - Generate at lower resolution for previews, then generate a final high-resolution version only on explicit user confirmation.
 - Queue/async generation with a loading state, since generation can take several seconds.
 
-## Build It
+## 🔨 Build It
 
 Since real diffusion models require GPUs and large weights, build a small "prompt compiler" from scratch that assembles a well-structured image prompt from separate subject/style/lighting/composition fields — the discipline that makes image prompts consistently good, independent of which model executes them.
 
@@ -73,7 +82,7 @@ if __name__ == "__main__":
     print(spec.compile())
 ```
 
-## Use It
+## ⚡ Use It
 
 Send the compiled prompt to a real image generation API, then request a variation of the result.
 
@@ -110,11 +119,11 @@ if __name__ == "__main__":
     print("Saved to puppy.png")
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/image-prompt-style-guide.md` — a reusable style-guide table (subject/style/composition/lighting/qualifiers) plus the `ImagePromptSpec` builder from Build It, so non-technical teammates can produce consistent prompts without memorizing syntax.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Generate the same subject with three different `style` values (e.g., "photorealistic," "watercolor," "3D render") and compare the results.
 2. Add a `negative_qualifiers` field to `ImagePromptSpec` (things to avoid, where the target model/API supports negative prompts) and demonstrate its effect.

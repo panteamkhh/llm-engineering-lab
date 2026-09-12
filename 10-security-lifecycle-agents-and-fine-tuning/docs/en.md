@@ -1,12 +1,20 @@
 # Lesson 10 — Securing, Operating, Extending, and Customizing Generative AI Applications
 
-> One-line motto — Shipping the demo is the easy 20%; securing it, operating it, letting it act autonomously, and customizing the model are the other 80%.
+> 💡 Shipping the demo is the easy 20%; securing it, operating it, letting it act autonomously, and customizing the model are the other 80%.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;10 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../09-low-code-function-calling-and-ux/docs/en.md">⬅ Lesson&nbsp;09</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Everything covered so far (Lessons [01](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms)–[09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux)) gets you to a working prototype. Turning that prototype into a production system that's secure, maintainable over time, capable of autonomous multi-step behavior, and — when truly needed — customized at the model-weights level, requires four more disciplines: security, LLMOps/lifecycle management, agents, and fine-tuning.
 
-## The Concept
+## 🧠 The Concept
 
 ### Part 1 — Securing generative AI applications
 
@@ -66,7 +74,7 @@ Common agent frameworks provide:
 6. **Deploy and use it** — a fine-tuned model typically gets its own model ID and is called exactly like any other model afterward.
 7. **Maintain it** — when the underlying foundation model improves, you are responsible for deciding whether and how to re-tune your custom model to keep pace.
 
-## Build It
+## 🔨 Build It
 
 Build a minimal, from-scratch ReAct-style agent loop (reason → act → observe → repeat) using the function registry pattern from [Lesson 09](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux), so you can see the control flow that agent frameworks automate for you.
 
@@ -112,7 +120,7 @@ if __name__ == "__main__":
     print(run_agent("How long do refunds take?"))
 ```
 
-## Use It
+## ⚡ Use It
 
 Prepare and submit a real fine-tuning job, then compare it against the base model — the production analog of "Ship It" for a customized model.
 
@@ -151,11 +159,11 @@ print(f"Fine-tuning job created: {job.id}. Poll client.fine_tuning.jobs.retrieve
 # response = client.chat.completions.create(model=fine_tuned_model_id, messages=[...])
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/production-readiness-checklist.md` — a combined checklist covering security review, LLMOps versioning, agent guardrails, and a fine-tuning-vs-RAG-vs-prompting decision guide, meant to be run before any generative AI feature goes to production.
 
-## Exercises
+## 🏋️ Exercises
 
 1. For a support-ticket-routing feature, list at least two prompt-injection scenarios and the specific mitigation you'd apply for each.
 2. Sketch (in prose or a diagram) what a versioned "prompt registry" would look like for a team running 5 different generative AI features, including how you'd detect a quality regression after a prompt change.

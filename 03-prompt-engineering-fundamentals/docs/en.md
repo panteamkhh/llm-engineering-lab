@@ -1,12 +1,21 @@
 # Lesson 03 — Understanding Prompt Engineering Fundamentals
 
-> One-line motto — The prompt is the interface: how you ask is most of what determines what you get.
+> 💡 The prompt is the interface: how you ask is most of what determines what you get.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;03 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../02-responsible-generative-ai/docs/en.md">⬅ Lesson&nbsp;02</a> &nbsp;·&nbsp;
+  <a href="../04-advanced-prompt-engineering/docs/en.md">Lesson&nbsp;04 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Two developers can send the exact same model two different prompts asking for "the same thing" and get wildly different quality of output. Without a shared vocabulary and a repeatable method for writing prompts, teams end up trial-and-erroring their way to mediocre results. This lesson gives you the core terms and a practical method.
 
-## The Concept
+## 🧠 The Concept
 
 ### Quick recap of terms from [Lesson 01](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms)
 
@@ -53,7 +62,7 @@ A prompt is the *entire input* you send a model: instructions, context, examples
 - **Azure OpenAI Service** — the same family of models, consumed through Azure with enterprise networking, compliance, and regional deployment options.
 - **Open-source model hubs** (e.g., Hugging Face) — for self-hosting or experimenting with open models like Llama or Mistral.
 
-## Build It
+## 🔨 Build It
 
 Build a tiny "prompt template engine" from scratch — the underlying idea behind every prompt-management library — so you understand what's happening before reaching for a framework.
 
@@ -100,7 +109,7 @@ if __name__ == "__main__":
     print(prompt)
 ```
 
-## Use It
+## ⚡ Use It
 
 Send that same prompt through a real chat completion API and compare zero-shot vs. few-shot quality.
 
@@ -143,11 +152,11 @@ print("Zero-shot:", zero_shot)
 print("Few-shot:", few_shot)
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/prompt-engineering-cheatsheet.md` — a one-page reference card of the instruction/context/input/output-indicator pattern plus 5 reusable prompt skeletons (classification, summarization, extraction, rewriting, Q&A) that a team can drop into any project.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Write a zero-shot prompt and a few-shot prompt for the same task (e.g., extracting dates from unstructured text). Run both and compare accuracy on 5 test inputs.
 2. Rewrite this weak prompt to be specific and testable: "Tell me about dogs." Include an instruction, context, and output indicator.

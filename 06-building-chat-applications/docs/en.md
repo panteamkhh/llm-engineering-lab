@@ -1,12 +1,21 @@
 # Lesson 06 — Building Chat Applications
 
-> One-line motto — A chatbot follows a script; a generative chat application follows a conversation.
+> 💡 A chatbot follows a script; a generative chat application follows a conversation.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;06 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../05-building-text-generation-apps/docs/en.md">⬅ Lesson&nbsp;05</a> &nbsp;·&nbsp;
+  <a href="../07-search-apps-and-vector-databases/docs/en.md">Lesson&nbsp;07 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Traditional chatbots use predefined decision trees and pattern matching — cheap to run but rigid and unable to handle novel phrasing. Generative AI chat applications can handle open-ended conversation, but they introduce new engineering problems: how do you maintain conversation state, control cost as history grows, and keep responses on-topic and safe over many turns?
 
-## The Concept
+## 🧠 The Concept
 
 ### Chatbot vs. generative AI chat application
 
@@ -52,7 +61,7 @@ Track, per conversation and in aggregate:
 
 Because chat is multi-turn, harmful content can emerge gradually across turns even if each individual message looks benign. Safety checks should run on the *combined recent context*, not only the latest message in isolation.
 
-## Build It
+## 🔨 Build It
 
 Implement a minimal, in-memory chat session manager with a sliding-window history strategy, built from scratch before reaching for a framework's session abstraction.
 
@@ -92,7 +101,7 @@ if __name__ == "__main__":
         print(f"{msg['role']}: {msg['content']}")
 ```
 
-## Use It
+## ⚡ Use It
 
 Connect the session manager to a real streaming chat completion API with response-level safety checks.
 
@@ -139,11 +148,11 @@ if __name__ == "__main__":
     print(send_turn(session, "It's order number 12345."))
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/chat-app-metrics-dashboard-spec.md` — a spec for a metrics dashboard (latency, token cost, safety-trigger rate, satisfaction signals) plus the reusable `ChatSession` class from Build It, ready to drop into a chat backend.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Implement summarization-based history management: when the conversation exceeds N turns, ask the model to summarize the oldest turns into a single system-message recap instead of dropping them outright.
 2. Add streaming to the `send_turn` function and measure time-to-first-token vs. total completion time.

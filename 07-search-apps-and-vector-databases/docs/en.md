@@ -1,12 +1,21 @@
 # Lesson 07 — Building Search Apps, Vector Databases, and Retrieval-Augmented Generation (RAG)
 
-> One-line motto — Embeddings turn meaning into geometry, and RAG uses that geometry to give the model a memory it never trained on.
+> 💡 Embeddings turn meaning into geometry, and RAG uses that geometry to give the model a memory it never trained on.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;07 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../06-building-chat-applications/docs/en.md">⬅ Lesson&nbsp;06</a> &nbsp;·&nbsp;
+  <a href="../08-building-image-generation-apps/docs/en.md">Lesson&nbsp;08 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 An LLM only "knows" what was in its training data — it can't answer questions about your private documents, today's data, or anything created after its training cutoff. Keyword search doesn't fully solve this either, since it matches literal words, not meaning ("car" won't match "automobile"). This lesson covers **semantic search** via embeddings and vector databases, and how to combine that search with generation to build **RAG** systems.
 
-## The Concept
+## 🧠 The Concept
 
 ### Keyword search vs. semantic search
 
@@ -53,7 +62,7 @@ Documents → Chunk → Embed → Store in vector DB
 User query → Embed → Search (top-k) → Retrieved chunks → Prompt template → LLM → Answer
 ```
 
-## Build It
+## 🔨 Build It
 
 Build a minimal in-memory semantic search engine from scratch — no vector database, just cosine similarity over a small corpus — to see exactly what a vector store does before using a managed one.
 
@@ -93,7 +102,7 @@ if __name__ == "__main__":
         print(f"{score:.2f} — {doc}")
 ```
 
-## Use It
+## ⚡ Use It
 
 Now build a real RAG pipeline: real embeddings, a vector store, and a grounded generation call.
 
@@ -153,11 +162,11 @@ if __name__ == "__main__":
     print(rag_answer("How long do I have to return an item?", store))
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/rag-architecture-diagram-and-checklist.md` — an end-to-end RAG pipeline diagram (as text/mermaid) plus a chunking-strategy decision checklist a team can use when indexing a new document source.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Replace the crude `fake_embed` in Build It with real embeddings from `text-embedding-3-small` on the same 3 documents and compare which results rank higher.
 2. Implement fixed-size chunking with 20% overlap for a long document, and explain in your own words why overlap helps avoid losing context at chunk boundaries.

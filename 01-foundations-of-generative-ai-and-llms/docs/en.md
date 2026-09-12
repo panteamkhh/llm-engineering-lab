@@ -1,12 +1,20 @@
 # Lesson 01 — Foundations of Generative AI and LLMs
 
-> One-line motto — Text in, tokens out: everything a large language model does is next-token prediction at scale.
+> 💡 Text in, tokens out: everything a large language model does is next-token prediction at scale.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;01 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../02-responsible-generative-ai/docs/en.md">Next: Lesson&nbsp;02 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Before you can build anything with generative AI, you need a working mental model of *what these systems actually are*. Without it, terms like "foundation model," "open source vs. proprietary," and "embedding" get used interchangeably and incorrectly, and it becomes impossible to pick the right model or the right architecture (prompt engineering vs. RAG vs. fine-tuning) for a given problem. This lesson builds that mental model from the ground up.
 
-## The Concept
+## 🧠 The Concept
 
 ### A short history
 
@@ -71,7 +79,7 @@ There is no single "best" approach — pick based on your constraints:
 
 These techniques are **complementary, not mutually exclusive** — production systems often combine prompt engineering + RAG, or RAG + a lightly fine-tuned model.
 
-## Build It
+## 🔨 Build It
 
 A minimal "from scratch" illustration of tokenization and the next-token prediction loop, using nothing but Python, so you can see the mechanism before you touch any SDK.
 
@@ -108,7 +116,7 @@ if __name__ == "__main__":
     print("Token IDs:", ids)
 ```
 
-## Use It
+## ⚡ Use It
 
 Now do the same thing with a real, production-grade tokenizer and a real completion API call.
 
@@ -145,11 +153,11 @@ print(response.choices[0].message.content)
 print("Tokens used:", response.usage.total_tokens)
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/model-selection-checklist.md` — a one-page decision checklist a team can run through before choosing between prompt engineering, RAG, fine-tuning, or a from-scratch model for a new use case, plus an open-source-vs-proprietary tradeoff table they can paste into an ADR (Architecture Decision Record).
 
-## Exercises
+## 🏋️ Exercises
 
 1. Use `tiktoken` to compare token counts for the same sentence in English vs. another language you speak. Which one uses more tokens, and why does that matter for API cost?
 2. List three foundation models that are *not* LLMs (i.e., not primarily text-based). What modality do they operate on?

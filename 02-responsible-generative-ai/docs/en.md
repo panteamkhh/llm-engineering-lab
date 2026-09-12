@@ -1,12 +1,21 @@
 # Lesson 02 — Using Generative AI Responsibly
 
-> One-line motto — Responsible AI isn't a lesson you finish, it's a layer you run on every request.
+> 💡 Responsible AI isn't a lesson you finish, it's a layer you run on every request.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;02 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../01-foundations-of-generative-ai-and-llms/docs/en.md">⬅ Lesson&nbsp;01</a> &nbsp;·&nbsp;
+  <a href="../03-prompt-engineering-fundamentals/docs/en.md">Lesson&nbsp;03 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Generative AI applications can produce outputs that are inaccurate, biased, offensive, or exploitable — regardless of whether you have 1 user or 1 million. Bolting on "safety" after the product ships is expensive and reputationally risky. This lesson gives you a repeatable process to bake responsibility into the application lifecycle from day one.
 
-## The Concept
+## 🧠 The Concept
 
 ### Why this comes early, not late
 
@@ -43,7 +52,7 @@ Responsible AI should not be an afterthought bolted on right before launch — i
 - **Transparency** — people should understand how and why the system makes the decisions or generates the content it does.
 - **Accountability** — there should be a clear, human-owned process for oversight and correction.
 
-## Build It
+## 🔨 Build It
 
 A minimal, dependency-free "harm probe" harness: run a fixed set of adversarial prompts against your system and flag responses that match red-flag patterns. This is the *measure* stage in miniature, built from scratch before you reach for a managed content-safety API.
 
@@ -83,7 +92,7 @@ if __name__ == "__main__":
         print(f"[{status}] prompt={prompt!r}")
 ```
 
-## Use It
+## ⚡ Use It
 
 Now replace the toy keyword matcher with a real, managed content-safety layer sitting in front of and behind your model calls.
 
@@ -119,11 +128,11 @@ def guarded_generate(prompt: str, model_call) -> str:
     return output
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/responsible-ai-review-template.md` — a lightweight review template (identify → measure → mitigate → operate) a team fills out for every new generative AI feature before it ships, plus a short incident-response runbook stub.
 
-## Exercises
+## 🏋️ Exercises
 
 1. For a customer-support chatbot, list at least three specific harms under "identify" that are more likely than for a general-purpose assistant.
 2. Design three adversarial test prompts targeting a harm you identified in exercise 1, and write the "safe" ideal response for each.

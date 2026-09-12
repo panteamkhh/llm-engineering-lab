@@ -1,17 +1,40 @@
 <div align="center">
 
-# 🚀 Generative AI Engineering
+# 🚀 Generative AI Engineering Lab
 
-### From Scratch → Understanding → Production Thinking
+### Build it from scratch → Understand it deeply → Ship it to production
+
+A structured, hands-on curriculum for engineers who want to understand **how generative AI actually works** — not just how to call an API.
+
+[![Lessons](https://img.shields.io/badge/lessons-10-6366f1?style=for-the-badge)](#-course-roadmap)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](#-getting-started)
+[![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?style=for-the-badge&logo=openai&logoColor=white)](https://platform.openai.com/)
+[![Last Commit](https://img.shields.io/github/last-commit/panteamkhh/llm-engineering-lab?style=for-the-badge&color=22c55e)](https://github.com/panteamkhh/llm-engineering-lab/commits/main)
+[![Stars](https://img.shields.io/github/stars/panteamkhh/llm-engineering-lab?style=for-the-badge&color=f59e0b)](https://github.com/panteamkhh/llm-engineering-lab/stargazers)
 
 </div>
 
 ---
 
+## 📖 Table of Contents
+
+- [What is this?](#-what-is-this)
+- [Learning Philosophy](#-learning-philosophy)
+- [Course Roadmap](#-course-roadmap)
+- [How Each Lesson Works](#-how-each-lesson-works)
+- [Repository Architecture](#-repository-architecture)
+- [Getting Started](#-getting-started)
+- [Tech Stack](#-tech-stack)
+- [What Makes This Different](#-what-makes-this-different)
+- [Contributing](#-contributing)
+
+---
+
 ## 🎯 What is this?
 
-A structured learning path to understand **how Generative AI actually works**
-by building everything step by step — before using any framework.
+A structured learning path that teaches **how Generative AI actually works** by building everything from scratch first — before reaching for a framework or SDK.
+
+Each lesson follows the same rhythm: understand the problem, build the mechanism by hand in pure Python, then re-implement it with real production APIs and ship a reusable artifact.
 
 ---
 
@@ -23,12 +46,14 @@ by building everything step by step — before using any framework.
 
 </div>
 
+> You don't really understand a system until you've built a small version of it yourself.
+
 ---
 
 ## 📚 Course Roadmap
 
 | #  | Lesson | Focus |
-|----|--------|-------|
+|:--:|--------|-------|
 | 01 | [Foundations of LLMs](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms) | Tokens, Transformers, model thinking |
 | 02 | [Responsible AI](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai) | Safety, risks, evaluation |
 | 03 | [Prompt Engineering](https://github.com/panteamkhh/llm-engineering-lab/tree/main/03-prompt-engineering-fundamentals) | Prompt structure & patterns |
@@ -40,73 +65,140 @@ by building everything step by step — before using any framework.
 | 09 | [Tool Use & UX](https://github.com/panteamkhh/llm-engineering-lab/tree/main/09-low-code-function-calling-and-ux) | Function calling |
 | 10 | [Agents & Security](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning) | LLMOps, agents, safety |
 
+### 🗺️ Learning Path
+
+```mermaid
+flowchart LR
+    A[01 Foundations] --> B[02 Responsible AI]
+    B --> C[03 Prompt Engineering]
+    C --> D[04 Advanced Prompting]
+    D --> E[05 Text Generation]
+    E --> F[06 Chat Apps]
+    F --> G[07 RAG & Search]
+    G --> H[08 Image Generation]
+    H --> I[09 Function Calling]
+    I --> J[10 Agents & Security]
+```
+
 ---
 
-## 🏗 How each lesson works
+## 🏗️ How Each Lesson Works
 
 | Stage | Description |
-|-------|-------------|
-| Problem | Why this matters in real systems |
-| Concept | Intuition before code |
-| Build It | From-scratch implementation (no SDK) |
-| Use It | Real API / framework version |
-| Ship It | Final reusable artifact |
-| Exercises | Practice + challenge tasks |
+|:-----:|-------------|
+| 🧩 **Problem** | Why this matters in real systems |
+| 🧠 **Concept** | Intuition before code |
+| 🔨 **Build It** | From-scratch implementation (no SDK) |
+| ⚡ **Use It** | Real API / framework version |
+| 🚀 **Ship It** | Final reusable artifact |
+| 🏋️ **Exercises** | Practice + challenge tasks |
 
 ---
 
 ## 📁 Repository Architecture
 
-```
+```text
 LLM Engineering Lab
 ├── 01-foundations-of-generative-ai-and-llms/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
+│   ├── code/        # Runnable examples
+│   ├── docs/        # Lesson write-up (en.md)
+│   └── outputs/     # Reusable artifacts & checklists
 ├── 02-responsible-generative-ai/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 03-prompt-engineering-fundamentals/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 04-advanced-prompt-engineering/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 05-building-text-generation-apps/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 06-building-chat-applications/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 07-search-apps-and-vector-databases/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 08-building-image-generation-apps/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 ├── 09-low-code-function-calling-and-ux/
-│   ├── code/
-│   ├── docs/
-│   └── outputs/
 └── 10-security-lifecycle-agents-and-fine-tuning/
-    ├── code/
-    ├── docs/
-    └── outputs/
 ```
+
+Every lesson ships with three things:
+
+| Folder | Purpose |
+|--------|---------|
+| `code/` | From-scratch and real-API Python implementations |
+| `docs/` | The full lesson narrative and explanation |
+| `outputs/` | A production-oriented checklist, template, or reference |
 
 ---
 
-## 🧠 What makes this different?
+## 🚀 Getting Started
 
-- No passive learning
-- Everything built from scratch first
-- Real AI engineering thinking
-- Production-oriented mindset
-- Modular lesson design
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/panteamkhh/llm-engineering-lab.git
+cd llm-engineering-lab
+```
+
+**2. Create a virtual environment and install dependencies**
+
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+```
+
+**3. Set your API key**
+
+```bash
+# Windows (PowerShell)
+$env:OPENAI_API_KEY="sk-..."
+# macOS / Linux
+export OPENAI_API_KEY="sk-..."
+```
+
+**4. Start with Lesson 01**
+
+Open [`01-foundations-of-generative-ai-and-llms/docs/en.md`](https://github.com/panteamkhh/llm-engineering-lab/tree/main/01-foundations-of-generative-ai-and-llms) and work through it in order. Run the `code/` examples as you go.
+
+> 💡 Each `code/` file is runnable on its own and lists its `pip install` requirements in the header comment.
+
+---
+
+## 🧰 Tech Stack
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure_AI-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white)
+![Mermaid](https://img.shields.io/badge/Mermaid-FF3670?style=flat-square&logo=mermaid&logoColor=white)
+
+</div>
+
+---
+
+## ✨ What Makes This Different
+
+- **No passive learning** — every concept is implemented, not just explained
+- **From scratch first** — understand the mechanism before using the framework
+- **Real engineering thinking** — parameters, failure modes, cost, and safety
+- **Production-oriented** — each lesson ends with a reusable artifact
+- **Modular design** — lessons stand alone but compound into a system
+
+---
+
+## 🤝 Contributing
+
+Found a bug, a clearer explanation, or an improved example? Issues and pull requests are welcome.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -m "Add improvement"`)
+4. Open a pull request
+
+---
+
+<div align="center">
+
+**Built for engineers who want to understand, not just consume.**
+
+<sub>⭐ If this lab helps you, consider giving it a star.</sub>
+
+</div>

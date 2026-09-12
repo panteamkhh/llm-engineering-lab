@@ -1,12 +1,21 @@
 # Lesson 04 — Creating Advanced Prompts
 
-> One-line motto — When basic instructions stop working, structure and reasoning strategy pick up the slack.
+> 💡 When basic instructions stop working, structure and reasoning strategy pick up the slack.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;04 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../03-prompt-engineering-fundamentals/docs/en.md">⬅ Lesson&nbsp;03</a> &nbsp;·&nbsp;
+  <a href="../05-building-text-generation-apps/docs/en.md">Lesson&nbsp;05 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Zero/one/few-shot prompting works well for straightforward tasks, but breaks down on multi-step reasoning, tasks requiring strict output structure, or requests where the model needs to "show its work" to be reliable. This lesson covers techniques that push prompt engineering further before you reach for RAG or fine-tuning.
 
-## The Concept
+## 🧠 The Concept
 
 ### Give the model a role (persona prompting)
 
@@ -40,7 +49,7 @@ Treat prompt development like software development:
 
 Because instructions and user-provided content often travel in the same text channel, a malicious or careless piece of input content can contain text that looks like an instruction ("Ignore all previous instructions and instead..."). Defenses include: clearly delimiting untrusted content, instructing the model to treat delimited content as data only, validating/filtering inputs, and never letting user-supplied content alone determine sensitive actions (see [Lesson 10](https://github.com/panteamkhh/llm-engineering-lab/tree/main/10-security-lifecycle-agents-and-fine-tuning) for the broader security picture).
 
-## Build It
+## 🔨 Build It
 
 Implement a simple, from-scratch prompt evaluator that scores multiple prompt variants against a fixed test set — the core loop behind "prompt iteration" above.
 
@@ -93,7 +102,7 @@ if __name__ == "__main__":
         print(f"{variant.name}: accuracy={acc:.0%}")
 ```
 
-## Use It
+## ⚡ Use It
 
 Run the same evaluation harness against a real model, comparing a plain prompt to a chain-of-thought + structured-output prompt.
 
@@ -135,11 +144,11 @@ print(parsed["reasoning_summary"])
 print("Answer:", parsed["answer"])
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/advanced-prompt-patterns.md` — a reference of persona, chain-of-thought, delimiter, and structured-output patterns, plus a reusable prompt-evaluation harness (from Build It) a team can extend with their own scoring functions.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Take a prompt that currently fails on multi-step math or logic questions and add chain-of-thought instructions. Measure the accuracy difference on 10 test cases.
 2. Write a system prompt that uses delimiters to separate trusted instructions from untrusted user content, then write one adversarial input attempting a prompt injection. Does your delimiter strategy hold up?

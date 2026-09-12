@@ -1,12 +1,21 @@
 # Lesson 05 — Building Text Generation Applications
 
-> One-line motto — An LLM plus a completion call is not an application; parameters, error handling, and iteration are what make it one.
+> 💡 An LLM plus a completion call is not an application; parameters, error handling, and iteration are what make it one.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;05 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../04-advanced-prompt-engineering/docs/en.md">⬅ Lesson&nbsp;04</a> &nbsp;·&nbsp;
+  <a href="../06-building-chat-applications/docs/en.md">Lesson&nbsp;06 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Calling `chat.completions.create(...)` once in a script is trivial. Turning that into a reliable application — one where output length, creativity, and consistency are controllable, and where failures are handled gracefully — requires understanding the *generation parameters* and structuring your code around them.
 
-## The Concept
+## 🧠 The Concept
 
 ### The core generation parameters
 
@@ -43,7 +52,7 @@ A production text-generation feature typically needs:
 - **Context length exceeded:** truncate or summarize older content rather than crashing.
 - **Empty or malformed model output:** have a fallback message rather than surfacing a raw error to the user.
 
-## Build It
+## 🔨 Build It
 
 Build the generation loop and a minimal retry-with-backoff mechanism from scratch, so you can see exactly what a "text generation SDK" is doing under the hood before relying on one.
 
@@ -80,7 +89,7 @@ if __name__ == "__main__":
     print(result)
 ```
 
-## Use It
+## ⚡ Use It
 
 Wire the same retry pattern around a real streaming completion call, tuning generation parameters for a creative-writing use case.
 
@@ -118,11 +127,11 @@ if __name__ == "__main__":
     generate_text("Write a one-sentence product description for a smart water bottle.")
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/text-generation-parameter-guide.md` — a parameter tuning cheat sheet (temperature/top_p/max_tokens/penalties) mapped to five common use cases, plus the reusable `call_model_with_retry` helper for any future integration.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Generate the same prompt at `temperature=0`, `0.5`, and `1.0` five times each. Observe and describe how consistency changes.
 2. Add a `stop` sequence to force a generation to end right after a closing JSON bracket, and verify it works on 3 different prompts.

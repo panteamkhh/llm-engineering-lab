@@ -1,12 +1,21 @@
 # Lesson 09 — Low-Code AI, Function Calling, and Designing UX for AI Applications
 
-> One-line motto — The model decides *what* to do; function calling and good UX decide *how the user actually experiences that decision*.
+> 💡 The model decides *what* to do; function calling and good UX decide *how the user actually experiences that decision*.
 
-## The Problem
+<p align="center">
+  <strong>Lesson&nbsp;09 of 10</strong> &nbsp;·&nbsp;
+  <a href="../../README.md">🏠 Roadmap</a> &nbsp;·&nbsp;
+  <a href="../08-building-image-generation-apps/docs/en.md">⬅ Lesson&nbsp;08</a> &nbsp;·&nbsp;
+  <a href="../10-security-lifecycle-agents-and-fine-tuning/docs/en.md">Lesson&nbsp;10 →</a>
+</p>
+
+---
+
+## 🧩 The Problem
 
 Once you can generate text, chat, search, and images, the next gap is connecting a model to the *outside world* (real systems, real actions) and presenting all of this to *real users* in a way they can trust and use effectively — without necessarily writing a full custom application from scratch every time. This lesson covers three connected topics: low-code platforms, function calling, and UX design for AI apps.
 
-## The Concept
+## 🧠 The Concept
 
 ### Part 1 — Low-code / no-code generative AI
 
@@ -48,7 +57,7 @@ Key UX considerations specific to generative AI apps:
 - **Give feedback loops.** Thumbs up/down or explicit correction mechanisms both improve the product and satisfy the accountability principle from [Lesson 02](https://github.com/panteamkhh/llm-engineering-lab/tree/main/02-responsible-generative-ai).
 - **Match latency expectations to the UI.** Streaming text and progress indicators for slower operations (image generation, function calls to slow APIs) keep users engaged rather than confused by silence.
 
-## Build It
+## 🔨 Build It
 
 Build a minimal function-calling dispatcher from scratch, so you understand the actual control flow before relying on a specific SDK's function-calling feature.
 
@@ -94,7 +103,7 @@ if __name__ == "__main__":
     print(handle_user_message("What's the weather like in Paris?"))
 ```
 
-## Use It
+## ⚡ Use It
 
 Wire the same registry pattern to a real model's native function/tool calling feature.
 
@@ -154,11 +163,11 @@ if __name__ == "__main__":
     print(handle_user_message("What's the weather like in Paris?"))
 ```
 
-## Ship It
+## 🚀 Ship It
 
 **Artifact produced by this lesson:** `outputs/ai-app-ux-checklist.md` — a UX review checklist for generative AI features (disclosure, uncertainty handling, control/recovery, feedback loops, latency handling) plus the reusable function-registry pattern from Build It.
 
-## Exercises
+## 🏋️ Exercises
 
 1. Add a second function (e.g., `get_stock_price`) to the registry pattern and extend the model prompt/tool schema so it can choose between the two functions correctly.
 2. Design (in a short written spec, no code required) the UX for what happens when a function call fails (e.g., the weather API times out) — what does the user see, and what recovery options do they have?
